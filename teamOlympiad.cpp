@@ -9,7 +9,7 @@ int main(){
     cin>>temp;
     v1.push_back(temp);
   }
-  vector<vector<int>> v2(3);
+  vector<vector<int>> v2;
   vector<int>v3;
   int count1=0;
   int count2=0;
@@ -30,6 +30,7 @@ int main(){
   v2.push_back(v3);
   v3.clear();
   count1=min(count1,count2);
+  count2=0;
   for(int i=0;i<n;++i){
     if(v1[i]==3){
     v3.push_back(i+1);
@@ -39,15 +40,24 @@ int main(){
 
   v2.push_back(v3);
   v3.clear();
+  int outputCount=0;
   count1=min(count1,count2);
-  cout<<count1;
+  if(count1==0 || count2==0){
+    outputCount=1;
+    cout<<0;
+  }
+  if(outputCount==0 || outputCount!=1){
+  cout<<count1<<"\n";
   int temp=0;
-  for(int i=0;i<v2.size();++i,++temp){
-      cout<<v2[i][0]<<" ";
-      //cout<<"\n";
-      if(temp==count1){
+  for(int i=0;i<count1;++i,temp++){
+    if(temp==count1){
+      cout<<temp;
       break;
+    }
+    for(int j=0;j<v2.size();++j){
+      cout<<v2[j][i]<<" ";
+    }
+    cout<<"\n";
   }
-  }
-  
+} 
 }
