@@ -12,7 +12,7 @@ int main(){
     while(y+x<=n){
       temp=y+x;
       if(temp%k==0){
-        v.push_back(x);
+        cout<<x<<" ";
         count++;
       }
       else{
@@ -22,12 +22,6 @@ int main(){
     }
     if(count==0){
       cout<<-1;
-    }
-    else{
-      //sort(v.begin(),v.end());
-      for(auto ele:v){
-        cout<<ele<<" ";
-      }
     }
   
   }
